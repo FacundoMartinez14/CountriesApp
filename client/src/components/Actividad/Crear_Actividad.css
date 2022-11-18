@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.danger {
+    color: red;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+  }
+  .parent-crear{
+    display: flex;
+    height: 35vw;
+  }
+  .crearActi{
+    margin-top: 3.9em;
+    width: calc(100vw/3);  /* cambio el tama;o de los inputs */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #fefae076;
+    height: 100%;
+  }
+.search{
+  margin-top: 3.9em;
+  width: calc(100vw/3);
+  background-color: #fefae076;
+  height: 100%;
+}
+.nombre-actividad > label{
+  font-weight: 600;
+}
+.nombre-actividad > input{
+  width: 35%;
+}
+.addcountry {
+  height: 70%;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.render-removecountries{
+  height: 70%;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.paises_remover{
+  margin-top: 3.9em;
+  width: calc(100vw/3);
+  background-color: #fefae076;  
+  height: 100%;
+}
+.paises_remover > h3{
+  margin-top: 15%;
+  color: #283618;
+}
+.dificultad > label{
+  font-weight: 600;
+}
+.dificultad > select{
+  width: 35%;
+}
+.hs{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+}
+.search-input{
+  margin-top: calc(3.9em + 16px);
+  font-weight: 600;
+}
+.hs > div{
+  display: flex;
+  margin-left: 65%;
+  margin-top: 15px;
+}
+.duracion{
+  margin-bottom: 15px;
+}
+.duracion > label{
+  font-weight: 600;
+}
+.duracion > select{
+  width: 35%;
+}
+.min{
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+}
+.min > input{
+  margin-left: 65%;
+  margin-top: 15px;
+}
+.min > label{
+  margin-top: 15px;
+  font-size: 15px ;
+  font-family: 'Roboto', sans-serif;
+
+}
+.days{
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;  
+}
+.days > input{
+  margin-left: 65%;
+  margin-top: 15px;
+}
+.days > label{
+  margin-top: 15px;
+  font-size: 15px ;
+  font-family: 'Roboto', sans-serif;
+}
+.temporada > label{
+  font-weight: 600;
+}
+.temporada > input{
+  margin-top: 15px ;
+  background-color: #fefae0;
+  border: solid 0.5px;
+  color:#283618 ;
+}
+.temporada > input:hover{
+  background-color: #f8ec9a;
+  border: solid 0.5px;
+}
+.temporada > input:active{
+  background-color: #a69d66;
+  border: solid 0.5px;
+}
+.temporada > select {
+  width: 35%;
+}
+.post{
+  color: #376e37;
+  font-family: 'Roboto', sans-serif;  
+  font-weight: 700;
+}

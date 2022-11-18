@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.paises-buscados{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    margin-right: 15%;
+    margin-left: 40%;
+    margin-bottom: 5px;
+    border: solid 1px #283618;
+    border-radius: 15px;
+    padding-right: 5px;
+}
+
+.paises-buscados > img{
+    height: 20px;
+    width: 30px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.paises-buscados > h3{
+    font-size: 15px ;
+    font-family: 'Roboto', sans-serif;
+}
+.paises-buscados button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	background-color:#606c38;
+	border-radius:27px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	text-decoration:none;
+    border: solid 1px;
+    transition: 0.3s;
+}
+.paises-buscados button:hover {
+	background-color:#283618;
+}
+.paises-buscados button:active {
+	position:relative;
+	top:1px;
+}
+.paises-buscados button:disabled {
+    background-color: gray;
+	position:relative;
+	top:1px;
+}
+
+

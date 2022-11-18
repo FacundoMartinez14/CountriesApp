@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.filters{
+    background-color: #dda15ea2;
+    position: fixed;
+    left: 0;
+    width: 10em;
+    height: calc(100% - 3.9em);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 25px;      
+}
+.filters > fieldset{
+    display: flex;
+    background-color: #dda25eb4;
+    border-radius: 5px;
+    border-color: #fefae0;
+    flex-direction: column;
+    color: #fefae0;
+    font-family: 'Roboto', sans-serif;
+}
+.continents{
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.filters button{
+    height: 30px;
+    justify-self: center;
+    align-self: center;
+    width: 80px;
+    font-size: 12px;
+    background-color: #fefae0;
+    border: solid 0.5px;
+    color:#283618 ;
+    transition: 0.3s;
+}
+.filters button:hover{
+    background-color: #f8ec9a;
+    border: solid 0.5px;
+}
+.filters button:active{
+    background-color: #a69d66;
+    border: solid 0.5px;
+}

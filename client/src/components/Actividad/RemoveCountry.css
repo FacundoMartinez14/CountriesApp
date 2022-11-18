@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.paises-seleccionados{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    margin-right: 30%;
+    border: solid 1px #283618;
+    border-radius: 15px;
+    padding-right: 5px;
+    margin-left: 30%;
+    margin-bottom: 5px;
+}
+
+.paises-seleccionados > img{
+    height: 20px;
+    width: 30px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.paises-seleccionados > h3{
+    font-size: 15px ;
+    font-family: 'Roboto', sans-serif;
+}
+.paises-seleccionados button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	background-color:#606c38;
+	border-radius:27px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	text-decoration:none;
+    border: solid 1px;
+    padding: 0px 9px;
+    transition: 0.3s;
+}
+.paises-seleccionados button:hover {
+	background-color:#283618;
+}
+.paises-seleccionados button:active {
+	position:relative;
+	top:1px;
+}

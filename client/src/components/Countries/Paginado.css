@@ -1,0 +1,19 @@
+.paginado > button{
+    margin: 3px;
+    background-color: #fefae0;
+    border: solid 0.5px;
+    color:#283618 ;
+    transition: 0.3s;
+}
+.paginado > button:hover{
+    background-color: #f8ec9a;
+    border: solid 0.5px;
+}
+.paginado > button:active{
+    background-color: #a69d66;
+    border: solid 0.5px;
+}
+
+.pag-btn{
+    padding: 5px 10px;
+}

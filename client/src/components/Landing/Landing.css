@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Roboto&display=swap');
+.titulo{
+    font-family: 'Mea Culpa', cursive;
+    animation-name: caida;
+    animation-duration: 2s;
+    font-size: 100px;
+}
+
+.box button {
+    justify-content: center;
+    align-items: center;
+	background-color:#606c38;
+	border-radius:27px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	text-decoration: none;
+    border: solid 1px;
+    padding: 0px 9px;
+    transition: 0.3s; 
+    margin-bottom: 15px;
+    animation-name: GO;
+    animation-duration: 2s;
+}
+.box button:hover {
+	background-color:#283618;
+}
+.box button:active {
+	position:relative;
+	top:1px;
+}
+.box{
+    background-color: #fefae0a2;
+    margin-left: 30%;
+    margin-right: 30%;
+    border: solid 1px;
+    border-radius: 12px;
+    margin-top: 10%;
+}
+@keyframes GO {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes caida {
+        0%{
+            font-size: 0px;
+        }
+        100%{
+            font-size: 100px;
+        }
+}
