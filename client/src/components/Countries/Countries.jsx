@@ -5,7 +5,7 @@ import Countrie from './Countrie'
 import {Link} from 'react-router-dom'
 import Paginado from './Paginado';
 import  {DetailAct}  from '../Actividad/DetailAct';
-import './Countries.css'
+// import './Countries.css'
 
 
 export default function Countries(){

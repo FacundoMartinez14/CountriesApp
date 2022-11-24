@@ -12,18 +12,15 @@ import { Route, Routes } from 'react-router-dom';
 function App() {
 	return (
 		<>
-			<h1 className="text-3xl font-bold underline">Hello world!</h1>
 			<Routes>
 				<Route path="/" element={<Landing />} />
-				<Route path="/countries" element={[<Filter />, <Countries />, <NavBar />]} />
-
+				<Route path="/countries" element={ <Countries />} />
 				<Route path="/activities" element={[<CrearActividad />, <NavBar />]} />
 				<Route path="/about" element={[<About />, <NavBar />]} />
 				<Route path="/activities/:id" element={[<DetailAct />, <NavBar />]} />
 				<Route path="/countries/:id" element={[<Detail />, <NavBar />]} />
 			</Routes>
-    </>
-
+		</>
 	);
 }
 

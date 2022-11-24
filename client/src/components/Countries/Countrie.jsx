@@ -1,6 +1,6 @@
 import {React} from 'react';
 import { useSelector } from 'react-redux';
-import './Countrie.css'
+// import './Countrie.css'
 
 export default function Countrie({name, flag, continent, id, duracion, temporada, dificultad, countriesIn}){
     const prior = useSelector(state => state.prioridad)

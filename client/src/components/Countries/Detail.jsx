@@ -2,7 +2,7 @@ import {React, useEffect, useRef} from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCountries} from '../../redux/actions';
-import './Detail.css'
+// import './Detail.css'
 
 export function Detail(){
     const dispatch = useDispatch()
