@@ -8,17 +8,24 @@ import Filter from './components/Filters/Filters';
 import { DetailAct } from './components/Actividad/DetailAct';
 import { Detail } from './components/Countries/Detail';
 import { Route, Routes } from 'react-router-dom';
-
+import {useDispatch} from 'react-redux'
+import { useEffect } from 'react';
+import { getCountries, getActivity } from './redux/actions';
 function App() {
+	const dispatch = useDispatch();
+useEffect(() => {
+		dispatch(getCountries());
+		dispatch(getActivity())
+	}, [dispatch]);
 	return (
 		<>
 			<Routes>
 				<Route path="/" element={<Landing />} />
-				<Route path="/countries" element={ <Countries />} />
-				<Route path="/activities" element={[<CrearActividad />, <NavBar />]} />
-				<Route path="/about" element={[<About />, <NavBar />]} />
-				<Route path="/activities/:id" element={[<DetailAct />, <NavBar />]} />
-				<Route path="/countries/:id" element={[<Detail />, <NavBar />]} />
+				<Route path="/countries" element={ [<NavBar />,<Filter /> ,<Countries />]} />
+				<Route path="/activities" element={[ <NavBar />, <CrearActividad /> ]} />
+				<Route path="/about" element={[<NavBar />, <About /> ]} />
+				<Route path="/activities/:id" element={[<NavBar />, <DetailAct />]} />
+				<Route path="/countries/:id" element={[ <Detail /> ]} />
 			</Routes>
 		</>
 	);

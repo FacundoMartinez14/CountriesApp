@@ -53,8 +53,9 @@ export function validateDuracion(input) {
 
 export function validateField(obj){
         let error = {}
-        if(obj.name.length === 0 || !obj.nombre || !obj.dificultad || !obj.duracion || !obj.temporada){
+        if(obj.nombre.length === 0 || obj.dificultad.length === 0 || obj.temporada.length === 0){
             error.field = 'No pueden haber campos vacios'
         }
         return error
 }
+

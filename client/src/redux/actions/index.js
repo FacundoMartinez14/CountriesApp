@@ -14,12 +14,12 @@ export const filterAction = (filtered) =>{
 }
 //search se encarga de buscar el pais por el nombre
 export const search = (name) => {
-    return async (dispatch) => {
-        if(name.length > 0){
-            const result = await axios.get(`/countries?name=${name}`);
-            return dispatch({type: 'BUSCAR_COUNTRY', payload: result.data})
+    return (dispatch) => {
+        if(name?.length > 0){
+            const country = name[0].toUpperCase() + name.slice(1).toLowerCase();
+            return dispatch({type: 'BUSCAR_COUNTRY', payload: country})
         }else{
-            return dispatch({type:'BUSCAR_COUNTRY', payload:[]})
+            return dispatch({type:'GET_COUNTRIES_AGAIN', payload:[]})
         }
     }
 }
@@ -58,8 +58,8 @@ export const postActivity = (obj) => {
 }
 export const deleteActivity = (id) => {
     return async (dispatch) => {
-        const result = await axios.delete(`/activities/${id}`);
-        return dispatch({type: 'DELETE', payload: result.data});
+        await axios.delete(`/activities/${id}`);
+        return dispatch({type: 'DELETE', payload: id});
     }
 }
 export const forcePage = (page) => {

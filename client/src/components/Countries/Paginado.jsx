@@ -8,15 +8,15 @@ export default function Paginado({array, currentPage, paginate, length}){
   }
     return(
         <>
-          <div className='paginado'>
+          <div>
             {pageNumbers.length > 1 &&
             pageNumbers.map((p, i) =>
             p === currentPage ? (
-                <button key={i} className="pag-btn" onClick={() => paginate(p)}>
+                <button key={i} className="m-2 border border-black rounded transition-all duration-200 w-7 bg-white text-black" onClick={() => paginate(p)}>
                   {p}
                 </button>
             ) : (
-                <button key={i}  onClick={() => paginate(p)}>
+                <button key={i} className="m-2 border border-black rounded transition-all duration-200 w-7 bg-black text-white hover:bg-gray hover:border-gray" onClick={() => paginate(p)}>
                   {p}
                 </button>
             )
