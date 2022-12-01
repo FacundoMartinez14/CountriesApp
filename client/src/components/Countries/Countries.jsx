@@ -27,8 +27,8 @@ export default function Countries() {
 	const firstIndex = lastIndex - (page === 1 ? 9 : 10);
 	let currentPosts =
 		prior === 'activity'
-			? activities.slice(firstIndex, lastIndex)
-			: filtered.slice(firstIndex, lastIndex);
+			? activities?.slice(firstIndex, lastIndex)
+			: filtered?.slice(firstIndex, lastIndex);
 	const handleClick = (action) => {
 		window.scrollTo(0, 0);
 		if (prior === 'activity') {
