@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import './Crear_Actividad.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { search, postActivity, clean, getActivity } from '../../redux/actions';
@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export default function CrearActividad() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+
 	//este estado es para saber en cual de las opciones de duracion estoy
 	const [value, setValue] = useState({
 		duracion: '',
@@ -44,9 +45,9 @@ export default function CrearActividad() {
 		setPosition(value.duracion);
 	}
 	let duration = '';
-	if (value.duracion === 'min') {
+	if (value.duracion === 'min' && value.min !== '') {
 		duration = `${value.min} minutos.`;
-	} else if (value.duracion === 'hs') {
+	} else if (value.duracion === 'hs' && value.hs !== '') {
 		if (value.min === '') {
 			duration = `${value.hs}:00 hs.`;
 		} else if (value.min > 0 && value.min < 10) {
@@ -54,7 +55,7 @@ export default function CrearActividad() {
 		} else {
 			duration = `${value.hs}:${value.min} hs.`;
 		}
-	} else if (value.duracion === 'days') {
+	} else if (value.duracion === 'days' && value.days !== '') {
 		duration = `${value.days} dias.`;
 	}
 
@@ -75,13 +76,15 @@ export default function CrearActividad() {
 		dispatch(search(e.target.value));
 	};
 	const handleInput = (e) => {
-		setForm((prev) => ({
-			...prev,
+		setForm({
+			...form,
 			[e.target.name]: e.target.value,
-		}));
-		let objError2 = validateField(form);
-		if (objError2.field) {
+		});
+		let objError2 = validateField({ [e.target.name]: e.target.value });
+		if (objError2.field || objError2.nombre) {
 			setError(objError2);
+		} else {
+			setError({});
 		}
 	};
 	const handleSubmit = (e) => {
@@ -133,33 +136,31 @@ export default function CrearActividad() {
 	};
 	return (
 		<div className="grid grid-cols-3 pt-20">
-			{console.log(
-				'form',
-				form,
-				'error',
-				error,
-				'duracion',
-				duration,
-				'arr',
-				arr
-			)}
 			{post?.length > 0 && handleAlert(post)}
 			<div className="mt-14">
 				<form className="text-black py-8 rounded" onSubmit={handleSubmit}>
-					<div className="flex flex-col">
-						<label className="m-auto font-bold" htmlFor="name">
-							Nombre de la actividad
-						</label>
-						<br />
-						<input
-							className="w-10/12 m-auto text-black text-md border border-black"
-							type="text"
-							name="nombre"
-							value={form.nombre}
-							onChange={handleInput}
-						/>
+					<div className="m-auto flex flex-col">
+						<div className='flex flex-col'>
+							<label className="m-auto font-bold" htmlFor="name">
+								Nombre de la actividad
+							</label>
+							<br />
+							<input
+								className="w-10/12 m-auto text-black text-md border border-black"
+								type="text"
+								name="nombre"
+								value={form.nombre}
+								onChange={(e) => handleInput(e)}
+							/>
+						</div>
+						<small
+							className={`m-auto
+								${error.nombre ? 'text-danger font-bold' : 'text-white font-bold'}
+							`}
+						>
+							Solo letras en el nombre
+						</small>
 					</div>
-					<br />
 					<div className="flex flex-col">
 						<label className="m-auto font-bold" htmlFor="dificultad">
 							Dificultad
@@ -169,7 +170,7 @@ export default function CrearActividad() {
 							className="w-10/12 m-auto hover:cursor-pointer text-black border border-black"
 							name="dificultad"
 							id="dificultad"
-							onChange={handleInput}
+							onChange={(e) => handleInput(e)}
 							defaultValue={'DEFAULT'}
 						>
 							<option disabled value="DEFAULT">
@@ -204,21 +205,25 @@ export default function CrearActividad() {
 						</select>
 						<br />
 						{value.duracion === 'min' ? (
-							<div className="m-auto text-black">
-								<input
-									className="text-black border border-black"
-									type="number"
-									name="min"
-									value={value.min}
-									onChange={handleChange}
-								/>
-								<label htmlFor="min">minutos.</label>
-								<br />
-								{error.min && (
-									<small className={error.min && 'text-danger font-bold'}>
-										{error.min}
-									</small>
-								)}
+							<div className="m-auto text-black flex flex-col">
+								<div className="m-auto">
+									<input
+										className="text-black border border-black"
+										type="number"
+										name="min"
+										value={value.min}
+										onChange={handleChange}
+									/>
+									<label htmlFor="min">minutos.</label>
+								</div>
+								<small
+									className={
+										error.min ? 'text-danger font-bold' : 'text-white font-bold'
+									}
+								>
+									Si la duracion es mayor de 60 minutos, elija la opcion de
+									'Horas'
+								</small>
 							</div>
 						) : value.duracion === 'hs' ? (
 							<div className="m-auto text-black">
@@ -235,9 +240,7 @@ export default function CrearActividad() {
 									</label>
 									<br />
 									<small className={error.hs ? 'text-danger' : 'text-white'}>
-										{error.hs
-											? error.hs
-											: 'Si la duracion es mayor de 24hs, elija la opcion "Dias"'}
+										'Si la duracion es mayor de 24hs, elija la opcion "Dias"'
 									</small>
 								</div>
 								<div>
@@ -288,7 +291,7 @@ export default function CrearActividad() {
 							className="w-10/12 m-auto text-black hover:cursor-pointer border border-black"
 							name="temporada"
 							id="temporada"
-							onChange={handleInput}
+							onChange={(e) => handleInput(e)}
 							defaultValue={'DEFAULT'}
 						>
 							<option disabled value="DEFAULT">
