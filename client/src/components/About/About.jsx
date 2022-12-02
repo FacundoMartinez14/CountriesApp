@@ -8,9 +8,7 @@ import postgress from '../../Assest/PostgreSQL.png';
 import react from '../../Assest/React.png';
 import redux from '../../Assest/Redux.png';
 import sequelize from '../../Assest/Sequelize.png';
-import { Link } from 'react-router-dom';
 
-// import './About.css'
 export default function About() {
 	return (
 		<div className="w-screen h-screen pt-20 ">

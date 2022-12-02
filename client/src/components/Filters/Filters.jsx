@@ -67,7 +67,7 @@ export default function Filter() {
 		<>
 			<form className="fixed h-screen bg-black text-white w-48 mt-16 shadow-lg">
 				<fieldset className="border border-white rounded flex flex-col w-11/12 m-auto pb-2">
-					<legend className="m-auto px-2">Continents</legend>
+					<legend className="m-auto px-2">Continentes</legend>
 					<div>
 						<input
 							className="ml-10 mr-3 "

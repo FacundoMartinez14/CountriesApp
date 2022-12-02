@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState} from 'react';
 import './Crear_Actividad.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { search, postActivity, clean, getActivity } from '../../redux/actions';
@@ -130,7 +130,7 @@ export default function CrearActividad() {
 				dispatch(clean());
 				dispatch(search(''));
 				dispatch(getActivity());
-				navigate('/countries');
+				navigate('/home');
 			}
 		});
 	};
