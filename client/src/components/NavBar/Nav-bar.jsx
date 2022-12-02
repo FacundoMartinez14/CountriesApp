@@ -1,10 +1,11 @@
 import { React, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 // import './Nav-bar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { search } from '../../redux/actions';
 import Swal from 'sweetalert2';
 export default function NavBar() {
+	const location = useLocation();
 	const dispatch = useDispatch();
 	const countries = useSelector((state) => state.countries);
 	const [searchLocal, setSearchLocal] = useState('');
@@ -12,12 +13,12 @@ export default function NavBar() {
 		Swal.fire({
 			toast: true,
 			icon: 'error',
-			iconColor: "#df4759",
+			iconColor: '#df4759',
 			title: 'No se ha encontrado el pais.',
 			html: '<h1>Por favor intente de nuevo..</h1>',
 			confirmButtonText: 'Aceptar',
 			background: '#363636',
-			color:"#f5f5f5"
+			color: '#f5f5f5',
 		}).then((res) => {
 			if (res.isConfirmed) {
 				dispatch(search());
@@ -37,7 +38,7 @@ export default function NavBar() {
 	return (
 		<div className="bg-black text-white h-16 shadow-lg flex justify-between items-center fixed w-screen">
 			<div>
-				<Link className="ml-8 text-xl" to="/countries">
+				<Link className="ml-8 text-xl" to="/home">
 					Home
 				</Link>
 				<Link className="ml-8 text-xl" to="/activities">
@@ -47,21 +48,23 @@ export default function NavBar() {
 					About
 				</Link>
 			</div>
-			<div className="mr-20 rounded">
-				<label className="mr-5 text-xl" htmlFor="search">
-					Buscador
-				</label>
-				<input
-					className="rounded text-black transition-all duration-200 focus:outline-none focus:border-white focus:ring-1 focus:ring-white"
-					type="text"
-					name="search"
-					id="search"
-					value={searchLocal}
-					onInput={handleChange}
-					placeholder="  Buscar..."
-					autoComplete="off"
-				/>
-			</div>
+			{location.pathname === '/home' ? (
+				<div className="mr-20 rounded">
+					<label className="mr-5 text-xl" htmlFor="search">
+						Buscador
+					</label>
+					<input
+						className="rounded text-black transition-all duration-200 focus:outline-none focus:border-white focus:ring-1 focus:ring-white"
+						type="text"
+						name="search"
+						id="search"
+						value={searchLocal}
+						onInput={handleChange}
+						placeholder="  Buscar..."
+						autoComplete="off"
+					/>
+				</div>
+			) : null}
 		</div>
 	);
 }

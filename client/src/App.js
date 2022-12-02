@@ -21,11 +21,11 @@ useEffect(() => {
 		<>
 			<Routes>
 				<Route path="/" element={<Landing />} />
-				<Route path="/countries" element={ [<NavBar />,<Filter /> ,<Countries />]} />
+				<Route path="/home" element={ [<NavBar />,<Filter /> ,<Countries />]} />
 				<Route path="/activities" element={[ <NavBar />, <CrearActividad /> ]} />
 				<Route path="/about" element={[<NavBar />, <About /> ]} />
 				<Route path="/activities/:id" element={[<NavBar />, <DetailAct />]} />
-				<Route path="/countries/:id" element={[ <Detail /> ]} />
+				<Route path="/home/:id" element={[ <Detail /> ]} />
 			</Routes>
 		</>
 	);

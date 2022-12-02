@@ -15,6 +15,9 @@ module.exports = {
         '125': "125px",
         "512": "445px",
         "72": "18rem"
+      },
+      animation: {
+        "wiggle": 'wiggle 1s ease-in-out infinite',
       }
     },
   },
