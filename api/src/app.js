@@ -21,8 +21,12 @@ server.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
-
-
+server.use(
+	cors({
+		origin: ['http://localhost:3000/', 'https://countries-app-mmov.vercel.app/'],
+		methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+	})
+);
 server.use('/', routes);
 
 // Error catching endware.
